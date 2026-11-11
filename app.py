@@ -3,6 +3,8 @@ import importlib
 
 import streamlit as st
 
+from src.auth import render_auth_page, logout_user
+from src.supabase_client import get_supabase_client
 from src.ui_components import load_css, illustrative_banner
 from src.data_loader import (
     load_skills_catalog,
@@ -35,7 +37,55 @@ st.markdown(
 
 
 # --------------------------------------------------
-# 3. LOAD AND VALIDATE DATA
+# 3. SUPABASE AUTHENTICATION
+# --------------------------------------------------
+
+try:
+    supabase = get_supabase_client()
+
+except Exception as error:
+    st.error("DataSphere could not connect to Supabase.")
+    st.caption(f"Technical detail: {error}")
+    st.stop()
+
+
+# Check whether the current Streamlit session
+# has an active Supabase authentication session.
+
+try:
+    auth_session = supabase.auth.get_session()
+
+except Exception as error:
+    st.error("Could not verify your login session.")
+    st.caption(f"Technical detail: {error}")
+    st.stop()
+
+
+# If there is no authenticated session,
+# show the login and registration page.
+
+if auth_session is None or auth_session.user is None:
+
+    st.session_state.pop("auth_user", None)
+
+    render_auth_page(supabase)
+
+    st.stop()
+
+
+# Keep the authenticated user's basic information
+# available to the rest of the application.
+
+authenticated_user = auth_session.user
+
+st.session_state["auth_user"] = {
+    "id": authenticated_user.id,
+    "email": authenticated_user.email,
+}
+
+
+# --------------------------------------------------
+# 4. LOAD AND VALIDATE APPLICATION DATA
 # --------------------------------------------------
 
 @st.cache_data
@@ -72,13 +122,14 @@ if problems:
     st.stop()
 
 
-# Make datasets available to view modules
+# Make datasets available to view modules.
+
 st.session_state["catalog"] = catalog
 st.session_state["roles"] = roles
 
 
 # --------------------------------------------------
-# 4. NAVIGATION ROUTES
+# 5. NAVIGATION ROUTES
 # --------------------------------------------------
 
 VIEW_MODULES = {
@@ -94,11 +145,11 @@ VIEW_MODULES = {
 
 
 # --------------------------------------------------
-# 5. HANDLE PAGE REDIRECTION
+# 6. HANDLE PAGE REDIRECTION
 # --------------------------------------------------
 
-# A page can request navigation by setting pending_page.
-# We process it BEFORE creating the sidebar radio widget.
+# Process pending navigation BEFORE creating
+# the sidebar radio widget.
 
 if "pending_page" in st.session_state:
 
@@ -108,14 +159,15 @@ if "pending_page" in st.session_state:
         st.session_state["navigation_choice"] = requested_page
 
 
-# Initialize navigation
+# Initialize navigation.
+
 if st.session_state.get("navigation_choice") not in VIEW_MODULES:
 
     st.session_state["navigation_choice"] = "Home"
 
 
 # --------------------------------------------------
-# 6. SIDEBAR
+# 7. SIDEBAR
 # --------------------------------------------------
 
 with st.sidebar:
@@ -130,6 +182,22 @@ with st.sidebar:
 
     st.divider()
 
+    # Logged-in user information.
+
+    st.caption("SIGNED IN AS")
+
+    st.write(st.session_state["auth_user"]["email"])
+
+    if st.button(
+        "Log out",
+        use_container_width=True
+    ):
+        logout_user(supabase)
+
+    st.divider()
+
+    # Main navigation.
+
     selected_page = st.radio(
         "Navigation",
         options=list(VIEW_MODULES.keys()),
@@ -143,7 +211,7 @@ with st.sidebar:
 
 
 # --------------------------------------------------
-# 7. MAIN CONTENT AND PAGE ROUTING
+# 8. MAIN CONTENT AND PAGE ROUTING
 # --------------------------------------------------
 
 illustrative_banner()
