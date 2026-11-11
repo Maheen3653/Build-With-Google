@@ -1,0 +1,49 @@
+role,skill,category,importance,required_level,data_status
+Data Analyst,SQL,Data Analysis,3,2,illustrative
+Data Analyst,Excel,Data Analysis,3,2,illustrative
+Data Analyst,Python,Programming,2,2,illustrative
+Data Analyst,Pandas,Data Analysis,2,2,illustrative
+Data Analyst,Data Cleaning,Data Analysis,3,2,illustrative
+Data Analyst,Data Visualization,Data Analysis,3,2,illustrative
+Data Analyst,Statistics,Statistics,2,2,illustrative
+Data Analyst,Power BI/Tableau,BI,2,2,illustrative
+Data Analyst,Communication & Storytelling,Communication,2,2,illustrative
+Data Analyst,Git,Tools,1,1,illustrative
+Data Scientist,Python,Programming,3,3,illustrative
+Data Scientist,Statistics,Statistics,3,2,illustrative
+Data Scientist,Probability,Statistics,2,2,illustrative
+Data Scientist,Pandas,Data Analysis,3,2,illustrative
+Data Scientist,Machine Learning Basics,ML,3,2,illustrative
+Data Scientist,Scikit-learn,ML,3,2,illustrative
+Data Scientist,Model Evaluation,ML,2,2,illustrative
+Data Scientist,Feature Engineering,ML,2,2,illustrative
+Data Scientist,Data Visualization,Data Analysis,2,2,illustrative
+Data Scientist,SQL,Data Analysis,2,2,illustrative
+Data Scientist,Communication & Storytelling,Communication,2,2,illustrative
+Machine Learning Intern,Python,Programming,3,2,illustrative
+Machine Learning Intern,Machine Learning Basics,ML,3,2,illustrative
+Machine Learning Intern,Scikit-learn,ML,3,2,illustrative
+Machine Learning Intern,Pandas,Data Analysis,2,2,illustrative
+Machine Learning Intern,Statistics,Statistics,2,2,illustrative
+Machine Learning Intern,Model Evaluation,ML,2,2,illustrative
+Machine Learning Intern,Deep Learning Basics,ML,2,1,illustrative
+Machine Learning Intern,Git,Tools,2,1,illustrative
+Machine Learning Intern,Linux/CLI,Tools,1,1,illustrative
+Data Engineer,Python,Programming,3,2,illustrative
+Data Engineer,SQL,Data Analysis,3,3,illustrative
+Data Engineer,ETL Concepts,Data Engineering,3,2,illustrative
+Data Engineer,Data Modeling,Data Engineering,3,2,illustrative
+Data Engineer,Linux/CLI,Tools,2,2,illustrative
+Data Engineer,Git,Tools,2,2,illustrative
+Data Engineer,APIs,Programming,2,2,illustrative
+Data Engineer,Cloud Basics,Data Engineering,2,1,illustrative
+Data Engineer,Apache Spark Basics,Data Engineering,2,1,illustrative
+Data Engineer,Docker Basics,Tools,1,1,illustrative
+Business Intelligence Analyst,SQL,Data Analysis,3,2,illustrative
+Business Intelligence Analyst,Power BI/Tableau,BI,3,2,illustrative
+Business Intelligence Analyst,Dashboard Design,BI,3,2,illustrative
+Business Intelligence Analyst,Excel,Data Analysis,3,2,illustrative
+Business Intelligence Analyst,Data Visualization,Data Analysis,2,2,illustrative
+Business Intelligence Analyst,Data Modeling,Data Engineering,2,1,illustrative
+Business Intelligence Analyst,Communication & Storytelling,Communication,3,2,illustrative
+Business Intelligence Analyst,Statistics,Statistics,1,1,illustrative

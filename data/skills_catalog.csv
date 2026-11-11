@@ -1,0 +1,26 @@
+skill,category,prerequisite,est_hours_to_level,description
+Python,Programming,,40,Write scripts and functions to automate data tasks
+SQL,Data Analysis,,25,Query relational databases with SELECT JOIN and GROUP BY
+Excel,Data Analysis,,15,Use formulas and pivot tables and charts in spreadsheets
+Statistics,Statistics,,35,Describe data and reason about uncertainty
+Probability,Statistics,,25,Understand chance and distributions
+Pandas,Data Analysis,Python,20,Manipulate tables of data in Python
+Data Cleaning,Data Analysis,Pandas,15,Fix missing values duplicates and wrong formats
+Data Visualization,Data Analysis,Pandas,15,Turn data into clear charts
+Power BI/Tableau,BI,,25,Build interactive dashboards with a BI tool
+Dashboard Design,BI,Data Visualization,12,Design dashboards that answer business questions
+Git,Tools,,8,Track code changes and collaborate
+Linux/CLI,Tools,,10,Use the command line comfortably
+Machine Learning Basics,ML,Statistics,40,Understand supervised learning and training/testing
+Scikit-learn,ML,Machine Learning Basics,20,Train classic ML models in Python
+Feature Engineering,ML,Scikit-learn,15,Create useful input variables for models
+Model Evaluation,ML,Scikit-learn,12,Measure model quality with suitable metrics
+Deep Learning Basics,ML,Machine Learning Basics,40,Understand neural networks at a basic level
+ETL Concepts,Data Engineering,SQL,15,Extract transform and load data between systems
+Data Modeling,Data Engineering,SQL,20,Design tables and relationships
+Cloud Basics,Data Engineering,,20,Understand cloud storage and compute basics
+Apache Spark Basics,Data Engineering,Python,25,Process large datasets with distributed tools
+APIs,Programming,Python,12,Fetch and send data through web APIs
+Docker Basics,Tools,Linux/CLI,12,Package applications in containers
+A/B Testing,Statistics,Statistics,12,Compare two versions using experiments
+Communication & Storytelling,Communication,,15,Explain findings clearly to non-technical people
